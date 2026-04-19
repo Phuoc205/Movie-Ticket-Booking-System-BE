@@ -1,1 +1,4 @@
-export class CreateBookingDto {}
+export class CreateBookingDto {
+    showtimeId!: string;
+    seatIds!: string[];
+}

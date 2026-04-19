@@ -10,12 +10,6 @@ export class SeatEntity {
     @Column()
     seat_number!: string;
 
-    @Column()
-    type!: string;
-
-    @Column('int')
-    price!: number;
-
     // Quan hệ N - 1 với rooms
     @ManyToOne(() => RoomEntity, (room) => room.seats, {
         onDelete: 'CASCADE',
@@ -24,5 +18,5 @@ export class SeatEntity {
 
     // Quan hệ 1 - 1 với seats
     @OneToOne(() => BookingSeatEntity, (bookseat) => bookseat.seat)
-    booking_seat!: RoomEntity;
+    booking_seat!: BookingSeatEntity;
 }

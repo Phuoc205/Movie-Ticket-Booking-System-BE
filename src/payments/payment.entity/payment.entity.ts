@@ -6,7 +6,9 @@ export class PaymentEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @ManyToOne(() => BookingEntity, (booking) => booking.payments)
+  @ManyToOne(() => BookingEntity, (booking) => booking.payments, {
+    onDelete: 'CASCADE',
+  })
   booking!: BookingEntity;
 
   @Column()

@@ -10,8 +10,18 @@ export class RoomEntity {
     @Column({ type: 'text' })
     name!: string;
 
-    @Column({ type: 'int', nullable: true })
+    @Column({ type: 'int' })
     total_seats!: number;
+
+    @Column({ type: 'int' , nullable: true})
+    seats_per_row!: number;
+
+    @Column({
+        type: 'enum',
+        enum: ['NORMAL', 'VIP'],
+        default: 'NORMAL',
+    })
+    type!: 'NORMAL' | 'VIP';
 
     // Quan hệ 1 - N với seats
     @OneToMany(() => SeatEntity, (seat) => seat.room)

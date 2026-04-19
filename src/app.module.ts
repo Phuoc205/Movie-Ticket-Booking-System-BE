@@ -3,24 +3,24 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { UsersController } from './users/users.controller';
-import { RoomsController } from './rooms/rooms.controller';
+import { UserController } from './users/users.controller';
+import { RoomController } from './rooms/rooms.controller';
 import { AuthController } from './auth/auth.controller';
-import { MoviesController } from './movies/movies.controller';
-import { ShowtimesController } from './showtimes/showtimes.controller';
-import { SeatsController } from './seats/seats.controller';
-import { BookingsController } from './bookings/bookings.controller';
-import { PaymentsController } from './payments/payments.controller';
+import { MovieController } from './movies/movies.controller';
+import { ShowtimeController } from './showtimes/showtimes.controller';
+import { SeatController } from './seats/seats.controller';
+import { BookingController } from './bookings/bookings.controller';
+import { PaymentController } from './payments/payments.controller';
 import { ReportsController } from './reports/reports.controller';
 
-import { UsersService } from './users/users.service';
+import { UserService } from './users/users.service';
 import { AuthService } from './auth/auth.service';
-import { MoviesService } from './movies/movies.service';
-import { ShowtimesService } from './showtimes/showtimes.service';
-import { RoomsService } from './rooms/rooms.service';
-import { SeatsService } from './seats/seats.service';
-import { BookingsService } from './bookings/bookings.service';
-import { PaymentsService } from './payments/payments.service';
+import { MovieService } from './movies/movies.service';
+import { ShowtimeService } from './showtimes/showtimes.service';
+import { RoomService } from './rooms/rooms.service';
+import { SeatService } from './seats/seats.service';
+import { BookingService } from './bookings/bookings.service';
+import { PaymentService } from './payments/payments.service';
 import { ReportsService } from './reports/reports.service';
 
 import { AuthModule } from './auth/auth.module';
@@ -34,7 +34,6 @@ import { PaymentsModule } from './payments/payments.module';
 import { ReportsModule } from './reports/reports.module';
 import { BookingSeatsModule } from './booking_seats/booking_seats.module';
 import { VoucherModule } from './voucher/voucher.module';
-
 
 @Module({
   imports: [
@@ -51,10 +50,8 @@ import { VoucherModule } from './voucher/voucher.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+
     AuthModule,
-    MoviesModule,
-    ShowtimesModule,
-    RoomsModule,
     UsersModule,
     MoviesModule,
     ShowtimesModule,
@@ -66,7 +63,8 @@ import { VoucherModule } from './voucher/voucher.module';
     BookingSeatsModule,
     VoucherModule,
   ],
-  controllers: [AppController, UsersController, RoomsController, AuthController, MoviesController, ShowtimesController, SeatsController, BookingsController, PaymentsController, ReportsController],
-  providers: [AppService, UsersService, AuthService, MoviesService, ShowtimesService, RoomsService, SeatsService, BookingsService, PaymentsService, ReportsService],
+
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

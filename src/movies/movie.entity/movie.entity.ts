@@ -15,16 +15,19 @@ export class MovieEntity {
   @Column('int')
   duration!: number;
 
-  @Column()
+  @Column({ nullable: true })
   trailer_url!: string;
 
-  @Column()
+  @Column({ nullable: true })
+  poster_url!: string;
+
+  @Column({ nullable: true })
   genre!: string;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true})
   release_date!: Date;
 
-  @Column()
+  @Column({default: "NOW_SHOWING"})
   status!: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

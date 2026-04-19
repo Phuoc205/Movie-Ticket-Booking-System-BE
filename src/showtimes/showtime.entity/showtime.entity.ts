@@ -15,12 +15,19 @@ export class ShowtimeEntity {
     @Column({ type: 'timestamp' })
     end_time!: Date;
 
+    @Column('int')
+    price!: number;
+
     // N-1 với Room
-    @ManyToOne(() => RoomEntity, (room) => room.showtimes)
+    @ManyToOne(() => RoomEntity, (room) => room.showtimes, {
+        onDelete: 'CASCADE',
+    })
     room!: RoomEntity;
 
     // N-1 với Movie
-    @ManyToOne(() => MovieEntity, (movie) => movie.showtimes)
+    @ManyToOne(() => MovieEntity, (movie) => movie.showtimes, {
+        onDelete: 'CASCADE',
+    })
     movie!: MovieEntity;
 
     // 1-N với booking_seats

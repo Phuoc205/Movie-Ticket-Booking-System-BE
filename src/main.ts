@@ -6,7 +6,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       "http://localhost:5173",
-      "https://movie-ticket-booking-system-fe-zk2q-2cskqm5gr.vercel.app"
+      "https://movie-ticket-booking-system-fe-zk2q.vercel.app"
     ],
     credentials: true,
   });

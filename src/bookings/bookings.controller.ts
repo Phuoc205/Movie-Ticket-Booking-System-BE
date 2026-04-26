@@ -31,4 +31,10 @@ export class BookingController {
   refund(@Param('id') id: string, @Req() req: any) {
     return this.bookingService.refundBooking(id, req.user);
   }
+
+  @Get(':id')
+  @UseGuards(AuthGuard('jwt'))
+  getById(@Param('id') id: string) {
+    return this.bookingService.getById(id);
+  }
 }

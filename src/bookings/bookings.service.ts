@@ -217,4 +217,25 @@ export class BookingService {
 
     return { message: 'Hoàn vé thành công' };
   }
+
+  async getById(id: string) {
+    const booking = await this.bookingRepo.findOne({
+      where: { id },
+      relations: {
+        showtime: {
+          movie: true,
+          room: true,
+        },
+        booking_seats: {
+          seat: true,
+        },
+      },
+    });
+
+    if (!booking) {
+      throw new NotFoundException('Booking not found');
+    }
+
+    return booking;
+  }
 }
